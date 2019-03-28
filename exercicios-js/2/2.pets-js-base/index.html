@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<head>
+
+    <title>Exercícios</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<script>
+
+	let pets = [{
+            nome: "Doguinho A",
+            idade: 4,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Doguinho B",
+            idade: 5,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Doguinho C",
+            idade: 11,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Gatinho A",
+            idade: 17,
+            tipoPet: "gato"
+        }, {
+            nome: "Gatinho H",
+            idade: 2,
+            tipoPet: "gato"
+        }, {
+            nome: "Passarinho A",
+            idade: 12,
+            tipoPet: "pássaro"
+        }, {
+            nome: "Doguinho Z",
+            idade: 16,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Doguinho H",
+            idade: 4,
+            tipoPet: "cachorro"
+        }, {
+            nome: "Gatinho P",
+            idade: 3,
+            tipoPet: "gato"
+        }];
+        
+        //exercicio 1 listando somente gatos
+        let somentegatos = pets.filter(pets => pets.tipoPet == "gato");
+        console.log(somentegatos);
+
+        //exercicio 2 listando somente animais com idade acima de 7
+        let somenteaidosos = pets.filter(pets => pets.idade > 7);
+        console.log(somenteaidosos);
+
+        //exercicio 3 listando somente o nome dos pets
+        let saida = [];
+
+        saida = pets.map(function(somentenome){
+            return somentenome.nome;
+        }) 
+        console.log(saida);
+
+        //exercicio 4 adicione mais um pet chamado doguinho com idade igual a 13
+        pets.push({
+            nome:"Doguinho",
+            idade:13,
+            tipoPet:"cachorro"
+        });console.log(pets)
+
+        //exercicio 5 listar a quantidade de cachorro da lista
+        let qtdcachorro = pets.filter(pets => pets.tipoPet == "cachorro");
+        console.log(qtdcachorro.length);
+
+        
+        //(Desafio) = exercicio 6 somar a idade de todos os pets
+        
+        // function Soma(total, num){
+        //     return total + num;
+        // }
+        let somaidade = pets.reduce((Soma, pets) =>{
+           return Soma + pets.idade
+        }, 0);
+        console.log(somaidade);
+
+</script>
+
+<body>
+    
+</body>
+
+</html>

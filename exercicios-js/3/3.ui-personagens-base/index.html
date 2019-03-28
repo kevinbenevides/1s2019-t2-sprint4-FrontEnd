@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>InLock - Personagens</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img{
+            width: 200px;
+            height: 150px;
+        }
+
+        #tabela-lista{
+            border:1px, solid, black;
+            margin: 2px ,100px;
+        }
+        thead{
+            background-color:blueviolet;
+        }
+        tbody{
+            margin: 2px ,100px;
+            background-color: #777;
+        }
+
+        
+    </style>
+
+</head>
+
+<body>
+
+    <table id="tabela-lista">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Lançamento</th>
+                <th>Imagem do filme</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabela-lista-corpo"></tbody>
+    </table>
+
+    <script>
+        
+
+        // function sucesso(){
+        //     var data = JSON.parse(this.responseText);
+        //     console.log(data);
+        //     preenchertabela(data);
+        // };
+
+        // function erro(err) {
+        //     console.log("Ocorreu um erro", err);
+        // };
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.onload = sucesso; //sucesso
+        // xhr.onerror = erro; //erro
+
+        // xhr.open("GET", "HTTP/1.1");
+        // xhr.send();
+        
+        const URL = "https://salty-atoll-57329.herokuapp.com/Personagens";
+        
+        fetch(URL)
+            .then(resposta => resposta.json())
+            .then(data => preencherTabela(data))
+            .catch(erro => console.error('erro', erro));
+
+        let tabela = document.getElementById('tabela-lista-corpo');
+
+
+        function preencherTabela (personagens){
+            personagens.forEach(element => {
+                let novaLinha = document.createElement("tr");
+
+                let colunaNome = document.createElement("td");
+                colunaNome.innerText = element.nome;
+
+                let colunaLancamento = document.createElement("td");
+                colunaLancamento.innerText = element.lancamento;
+
+                let colunaImagem = document.createElement("td");
+                colunaImagem.innerHTML = "<img src='"+ element.urlImagem +"'/>";
+
+                novaLinha.appendChild(colunaNome);
+                novaLinha.appendChild(colunaLancamento);
+                novaLinha.appendChild(colunaImagem);
+
+                tabela.appendChild(novaLinha);
+            });
+        }
+
+        
+    </script>
+</body>
+
+</html>
