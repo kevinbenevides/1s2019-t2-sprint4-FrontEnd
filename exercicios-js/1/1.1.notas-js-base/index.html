@@ -17,12 +17,13 @@
     </form>
 
     <script>
-       var btnCalcular = document.querySelector("#btnCalcular")
-       var notaum = document.querySelector("#notaum");
-       var notadois = documnent.querySelector("#notadois");
-       var media = (notaum+notadois)/2;
+       let btnCalcular = document.querySelector("#btnCalcular")
+       let notaum = document.querySelector("#notaum");
+       let notadois = document.querySelector("#notadois");
 
-        console.log(media);
+       let soma = (parseFloat(notaum.value) + parseFloat(notadois.value))/2;
+
+        btnCalcular.addEventListener("click", event => {event.preventDefault(); console.log(soma);});
 
 
     </script>

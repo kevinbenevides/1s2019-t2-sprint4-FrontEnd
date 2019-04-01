@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conversão Temperatura</title>
+</head>
+
+<body>
+
+    <form id="formtemperatura">
+        <input type="text" required name="temperatura" id="temperatura">
+        <input type="checkbox"  id="celcius" name="temperatura">Celcius</checkbox>
+        <input type="checkbox"  id="fahrenheit" name="temperatura">Fahrenheit</checkbox>
+        <button type="submit" id="btnConverter">Converter</button>
+    </form>
+
+    <script>
+        let temperatura = document.querySelector("#temperatura");
+        let btnConverter = document.querySelector("#btnConverter");
+        let fahrenheit = document.querySelector("#fahrenheit");
+        let celcius = document.querySelector("#celcius");
+
+        celcius.addEventListener("change", function(){
+            if(this.check){
+                let convercaoC = (parseFloat(temperatura.value) - 32)/ parseFloat(1.8);
+
+                console.log = (convercaoC);
+                // btnConverter.addEventListener("click", element => {
+                //         console.log = (convercaoC);
+                //         });
+            };
+        });
+        
+        fahrenheit.addEventListener("change", function(){
+            if(this.check){
+                let convercaoF = (parseFloat(temperatura.value) * parseFloat(1.8)) + 32
+
+                console.log = (convercaoF);
+                // btnConverter.addEventListener("click", element => {
+                //         console.log = (convercaoF);
+                //         });
+            }
+        });
+        
+    </script>
+
+</body>
+
+</html>
